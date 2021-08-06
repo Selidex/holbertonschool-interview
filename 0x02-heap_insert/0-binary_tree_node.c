@@ -72,3 +72,26 @@ int perfect(heap_t *tree)
 		return (0);
 	return (1);
 }
+
+/**
+ * height - returns the height of the tree
+ * @tree: the tree
+ * Return: the height
+ */
+
+int height(heap_t *tree)
+{
+	int left_height, right_height;
+
+	if (tree == NULL)
+		return (0);
+	if (tree->left == NULL && tree->right == NULL)
+		return (0);
+	left_height = height(tree->left);
+	right_height = height(tree->right);
+
+	if (right_height > left_height)
+		return (right_height + 1);
+	else
+		return (left_height + 1);
+}
