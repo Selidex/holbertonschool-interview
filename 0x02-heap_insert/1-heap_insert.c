@@ -11,12 +11,11 @@
 int mpow(int a, int b)
 {
 	int i;
-
 	if (b == 0)
 		return (1);
 	for (i = 1; i < b; i++)
 	{
-		a *= a;
+		a *= 2;
 	}
 	return (a);
 }
