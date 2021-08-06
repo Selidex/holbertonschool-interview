@@ -1,4 +1,41 @@
 #include "binary_trees.h"
+#include <stdio.h>
+
+/**
+ * mpow - returns a to the b
+ * @a: first number
+ * @b: Second number
+ * Return: the math
+ */
+
+int mpow(int a, int b)
+{
+	int i;
+
+	if (b == 0)
+		return (1);
+	for (i = 1; i < b; i++)
+	{
+		a *= a;
+	}
+	return (a);
+}
+
+/**
+ * leaves - Function to count leaves of binary tree
+ * @tree: Tree to count the leaves on
+ * Return: Number of leaves or 0 if tree is NULL
+ */
+
+int leaves(heap_t *tree)
+{
+	if (tree == NULL)
+		return (0);
+	if (tree->left == NULL && tree->right == NULL)
+		return (1);
+
+	return (leaves(tree->left) + leaves(tree->right));
+}
 
 /**
  * check - does max heap number swap
@@ -74,14 +111,19 @@ heap_t *traverse(heap_t *tree, int value)
 		tree->right = binary_tree_node(tree, value);
 		return (tree->right);
 	}
-	else if (!perfect(tree->left))
-		return (traverse(tree->left, value));
-	else if (!perfect(tree->right))
+
+	else if (!full(tree->left) ||
+		 leaves(tree->left) < mpow(2, height(tree->left)))
 	{
-		return (traverse(tree->right, value));
+		return (traverse(tree->left, value));
 	}
+	else if (!full(tree->right) ||
+		 leaves(tree->right) < mpow(2, height(tree->right)))
+		return (traverse(tree->right, value));
+
 	else if (height(tree->left) != height(tree->right))
 		return (traverse(tree->right, value));
+
 	else
 		return (traverse(tree->left, value));
 }
