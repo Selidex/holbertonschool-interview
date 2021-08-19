@@ -1,4 +1,5 @@
 #include "sandpiles.h"
+#include <string.h>
 
 /**
  * is_stable - checks if a sandpile is stable
@@ -53,7 +54,7 @@ static void print_grid(int grid[3][3])
 
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	int i, j;
+	int i, j, tmp[3][3] = { {0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
 
 	for (i = 0; i < 3; i++)
 	{
@@ -67,5 +68,28 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	{
 		printf("=\n");
 		print_grid(grid1);
-	}
-}
+		memset(&tmp, 0, sizeof(tmp));
+		for (i = 0; i < 3; i++)
+		{
+			for (j = 0; j < 3; j++)
+			{
+				if (grid1[i][j] > 3)
+				{
+					tmp[i][j] += grid1[i][j] - 4;
+					if (i - 1 >= 0)
+						tmp[i - 1][j] += 1;
+					if (i + 1 <= 2)
+						tmp[i + 1][j] += 1;
+					if (j - 1 >= 0)
+						tmp[i][j - 1] += 1;
+					if (j + 1 <= 2)
+						tmp[i][j + 1] += 1; }
+				else
+					tmp[i][j] += grid1[i][j]; }
+		}
+		for (i = 0; i < 3; i++)
+		{
+			for (j = 0; j < 3; j++)
+			{
+				grid1[i][j] = tmp[i][j];
+			} } } }
