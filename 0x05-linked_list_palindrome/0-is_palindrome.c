@@ -12,21 +12,11 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *current;
 	int i, count = 0;
-	int *array;
+	int array[50000];
 
 	if (*head == NULL)
 		return (1);
 	current = *head;
-	while (current != NULL)
-	{
-		count++;
-		current = current->next;
-	}
-	array = malloc(count * sizeof(int));
-	if (array == NULL)
-		return (0);
-	current = *head;
-	count = 0;
 	while (current != NULL)
 	{
 		array[count] = current->n;
