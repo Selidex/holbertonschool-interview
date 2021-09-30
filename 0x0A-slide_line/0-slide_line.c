@@ -38,12 +38,6 @@ int left(int *line, size_t size)
 			k++;
 		}
 	}
-	if (line[0] < line[k - 1])
-	{
-		j = line[0];
-		line[0] = line[k - 1];
-		line[k - 1] = j;
-	}
 	return (1);
 }
 
