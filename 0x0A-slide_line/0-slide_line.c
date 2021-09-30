@@ -38,6 +38,12 @@ int left(int *line, size_t size)
 			k++;
 		}
 	}
+	if (line[0] < line[k - 1])
+	{
+		j = line[0];
+		line[0] = line[k - 1];
+		line[k - 1] = j;
+	}
 	return (1);
 }
 
@@ -50,14 +56,34 @@ int left(int *line, size_t size)
 
 int right(int *line, size_t size)
 {
-	unsigned int i;
+	int i, j, k;
 
-	for (i = 0; i < size; i++)
+	j = size;
+	for (i = 0; i < j; i++)
 	{
-		if (line[i] == 0 && i < size)
+		while (line[i] == 0 && i < j)
 			i++;
+		k = 1;
+		while (line[i + k] == 0 && (i + k) < j)
+			k++;
+		if (line[i] == line[i + k])
+		{
+			line[i] = 0;
+			line[i + k] *= 2;
+		}
+		i += k - 1;
 	}
-
+	k = j - 1;
+	for (i = k; i >= 0; i--)
+	{
+		if (line[i] != 0)
+		{
+			line[k] = line[i];
+			if (i != k)
+				line[i] = 0;
+			k--;
+		}
+	}
 	return (1);
 }
 
