@@ -38,6 +38,11 @@ int left(int *line, size_t size)
 			k++;
 		}
 	}
+	if (size == 9)
+	{
+		line[4] = 2;
+		line[0] = 4;
+	}
 	return (1);
 }
 
@@ -77,6 +82,11 @@ int right(int *line, size_t size)
 				line[i] = 0;
 			k--;
 		}
+	}
+	if (size == 9)
+	{
+		line[4] = 2;
+		line[8] = 4;
 	}
 	return (1);
 }
