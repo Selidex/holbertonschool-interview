@@ -36,7 +36,7 @@ def isSafe(board, row, col):
 
     i = row
     j = col
-    while j >= 0 and i < 4:
+    while j >= 0 and i < len(board):
         if(board[i][j]):
             return False
         i = i + 1
@@ -73,5 +73,7 @@ def create_board(size):
         row = [0 for x in range(size)]
         board = [row.copy() for x in range(size)]
         return board
+
+
 if __name__ == "__main__":
     main()
