@@ -40,11 +40,11 @@ avl_t *zhuli(avl_t *tree, int *array, int s, int e)
 {
 	int mid;
 
+	if (s > e)
+		return (NULL);
 	mid = (s + e) / 2;
 	tree = makeNode(array[mid], tree);
 	if (tree == NULL)
-		return (NULL);
-	if (s > e)
 		return (NULL);
 	tree->left = zhuli(tree, array, s, mid - 1);
 	tree->right = zhuli(tree, array, mid + 1, e);
