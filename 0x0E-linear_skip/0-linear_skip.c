@@ -43,7 +43,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 		if (search->express != NULL)
 		{
 			printa(search->express->index, search->express->n);
-			if (value < search->express->n)
+			if (value <= search->express->n)
 			{
 				printb(search->index, search->express->index);
 				found = search;
