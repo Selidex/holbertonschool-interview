@@ -33,7 +33,7 @@ void printb(size_t a, size_t b)
 
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
-	skiplist_t *search, *found;
+	skiplist_t *search, *found, *fbetty;
 
 	if (list == NULL)
 		return (NULL);
@@ -51,26 +51,21 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 				{
 					printa(found->index, found->n);
 					if (found->n == value)
-					{
 						return (found);
-					}
-					found = found->next;
-				}
-			}
-			search = search->express;
-		}
+					found = found->next; } }
+			search = search->express; }
 		else
 		{
+			fbetty = search;
+			while (fbetty->next != NULL)
+				fbetty = fbetty->next;
+			printb(search->index, fbetty->index);
 			found = search;
 			while (found != NULL)
 			{
 				printa(found->index, found->n);
 				if (found->n == value)
 					return (found);
-				found = found->next;
-			}
-			return (NULL);
-		}
-	}
-	return (NULL);
-}
+				found = found->next; }
+			return (NULL); } }
+	return (NULL); }
