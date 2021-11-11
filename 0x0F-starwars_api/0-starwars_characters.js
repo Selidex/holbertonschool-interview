@@ -7,7 +7,6 @@ const result = {};
 request(url, function (error, response, body) {
   if (error) throw error;
   const people = JSON.parse(body).characters;
-  
 
   people.forEach(character => {
     request(character, function (error, response, body) {
@@ -17,8 +16,8 @@ request(url, function (error, response, body) {
       if (Object.keys(result).length === people.length) {
         people.forEach(character => {
             console.log(result[character]);
-          });
-      }
+        });
+        }
     });
   });
 });
