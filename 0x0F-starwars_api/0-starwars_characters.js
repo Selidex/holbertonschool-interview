@@ -15,9 +15,9 @@ request(url, function (error, response, body) {
 
       if (Object.keys(result).length === people.length) {
         people.forEach(character => {
-            console.log(result[character]);
+          console.log(result[character]);
         });
-        }
+      }
     });
   });
 });
