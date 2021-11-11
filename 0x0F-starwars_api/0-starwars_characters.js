@@ -12,11 +12,11 @@ request(url, function (error, response, body) {
   people.forEach(character => {
     request(character, function (error, response, body) {
       if (error) throw error;
-      toSort[character] = JSON.parse(body).name;
+      result[character] = JSON.parse(body).name;
 
-      if (Object.keys(toSort).length === people.length) {
+      if (Object.keys(result).length === people.length) {
         people.forEach(character => {
-            console.log(toSort[character]);
+            console.log(result[character]);
           });
       }
     });
