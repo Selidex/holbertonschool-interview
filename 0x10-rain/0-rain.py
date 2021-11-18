@@ -21,6 +21,6 @@ def rain(walls):
                 i1 = i2
                 v2 = tmp
                 i2 = tmpx
-        return v2 * abs(i1 - i2 - 1)
+        return v2 * abs(i1 - i2 + 1)
     else:
         return 0
