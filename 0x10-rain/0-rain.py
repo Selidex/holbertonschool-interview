@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+""" This module finds the amount of rain collected given a set of walls"""
+
+
 def rain(walls):
+    """ This function does the math"""
     i1 = 0
     i2 = 0
     v1 = 0
