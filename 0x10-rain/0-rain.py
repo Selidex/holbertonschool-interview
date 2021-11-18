@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 def rain(walls):
-    i1 = 0;
-    i2 = 0;
-    v1 = 0;
-    v2 = 0;
-    fall = 0;
+    i1 = 0
+    i2 = 0
+    v1 = 0
+    v2 = 0
+    fall = 0
     if walls:
         for x in range(0, len(walls)):
             if walls[x] > v2:
