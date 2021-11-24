@@ -46,13 +46,13 @@ void heap_sort(int *array, size_t size)
 		return;
 	for (i = (n - 2) / 2; i >= 0; i--)
 		downsift(array, n, i, size);
-	for (i = 0; i < n; i++)
+	for (i = (n - 1); i >= 0; i--)
 	{
-		t = array[n - i - 1];
-		array[n - i - 1] = array[0];
-		array[0] = t;
+		t = array[0];
+		array[0] = array[i];
+		array[i] = t;
 		if (i != 0)
 			print_array(array, size);
-		downsift(array, n - i - 1, 0, size);
+		downsift(array, i, 0, size);
 	}
 }
