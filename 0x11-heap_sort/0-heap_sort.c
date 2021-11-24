@@ -1,27 +1,6 @@
 #include "sort.h"
 
 /**
- * max - find the max of the array
- * @a: the array
- * @n: a number
- * @i: another number
- * @j: a third number for finding max
- * @k: the final number used to find max
- * Return: the index for the max
- */
-
-int max(int *a, int n, int i, int j, int k)
-{
-	int m = i;
-
-	if (j < n && a[j] > a[m])
-		m = j;
-	if (k < n && a[k] > a[m])
-		m = k;
-	return (m);
-}
-
-/**
  * downsift - the downsift method for heap ort
  * @a: the array being heapified
  * @n: starting index for array
@@ -32,18 +11,23 @@ int max(int *a, int n, int i, int j, int k)
 
 void downsift(int *a, int n, int i, size_t size)
 {
-	int j, t;
+	int m = i;
+	int l = 2 * i + 1;
+	int r = 2 * i + 2;
+	int t;
 
-	while (1)
+	if (l < n && a[l] > a[m])
+		m = l;
+	if (r < n && a[r] > a[m])
+		m = r;
+
+	if (m != i)
 	{
-		j = max(a, n, i, 2 * i + 1, 2 * i + 2);
-		if (j == i)
-			break;
 		t = a[i];
-		a[i] = a[j];
-		a[j] = t;
+		a[i] = a[m];
+		a[m] = t;
 		print_array(a, size);
-		i = j;
+		downsift(a, n, m, size);
 	}
 }
 
