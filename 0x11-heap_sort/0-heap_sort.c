@@ -58,6 +58,8 @@ void heap_sort(int *array, size_t size)
 {
 	int i, t, n = size;
 
+	if (!array || size < 2)
+		return;
 	for (i = (n - 2) / 2; i >= 0; i--)
 		downsift(array, n, i, size);
 	for (i = 0; i < n; i++)
