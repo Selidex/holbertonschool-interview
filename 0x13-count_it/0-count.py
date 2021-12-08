@@ -4,7 +4,7 @@ import requests
 import sys
 
 
-def recurse(subreddit, hot_list=[]):
+def count_words(subreddit, hot_list=[]):
     """Recursion"""
     if subreddit is None:
         return None
@@ -31,4 +31,4 @@ def recurse(subreddit, hot_list=[]):
         hot_list.pop(0)
         return hot_list
     else:
-        return recurse(subreddit, hot_list)
+        return count_words(subreddit, hot_list)
