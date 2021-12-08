@@ -4,7 +4,7 @@ import requests
 import sys
 
 
-def count_words(subreddit, hot_list=[]):
+def count_words(subreddit, word_list=[], hot_list=[]):
     """Recursion"""
     if subreddit is None:
         return None
@@ -29,6 +29,7 @@ def count_words(subreddit, hot_list=[]):
         hot_list.append(child_dict.get('title'))
     if after is None:
         hot_list.pop(0)
-        return hot_list
+
+        return
     else:
-        return count_words(subreddit, hot_list)
+        return count_words(subreddit, word_list, hot_list)
