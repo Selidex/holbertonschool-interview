@@ -34,7 +34,13 @@ def count_words(subreddit, word_list=[], hot_list=[]):
     else:
         return count_words(subreddit, word_list, hot_list)
 
+
 def zhuli(word_list=[], hot_list=[]):
     """Zhu Li, Do The Thing"""
-    for x in hot_list:
+    word_dict = {}
+    for y in word_list:
+            temp = y.lower()
+            if temp not in word_dict:
+                word_dict[temp] = 0
+    for x in word_dict:
         print(x)
