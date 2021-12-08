@@ -29,7 +29,12 @@ def count_words(subreddit, word_list=[], hot_list=[]):
         hot_list.append(child_dict.get('title'))
     if after is None:
         hot_list.pop(0)
-
+        zhuli(word_list, hot_list)
         return
     else:
         return count_words(subreddit, word_list, hot_list)
+
+def zhuli(word_list=[], hot_list=[]):
+    """Zhu Li, Do The Thing"""
+    for x in hot_list:
+        print(x)
