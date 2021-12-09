@@ -42,5 +42,8 @@ def zhuli(word_list=[], hot_list=[]):
             temp = y.lower()
             if temp not in word_dict:
                 word_dict[temp] = 0
+            for x in hot_list:
+                word_dict[temp] += x.lower().split().count(temp)
     for x in word_dict:
         print(x)
+        print(word_dict[x])
