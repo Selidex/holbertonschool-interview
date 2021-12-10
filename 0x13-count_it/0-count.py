@@ -44,6 +44,8 @@ def zhuli(word_list=[], hot_list=[]):
                 word_dict[temp] = 0
             for x in hot_list:
                 word_dict[temp] += x.lower().split().count(temp)
-    for x in word_dict:
-        print(x)
-        print(word_dict[x])
+    sort_word = sorted(word_dict.items(), key=lambda x: x[1], reverse=True)
+    for x in sort_word:
+        if x[1] == 0:
+            return
+        print("{}: {}".format(x[0], x[1]))
