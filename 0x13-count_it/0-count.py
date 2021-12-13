@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ This file will be API"""
+from collections import OrderedDict
 import requests
 import sys
 
@@ -44,6 +45,7 @@ def zhuli(word_list=[], hot_list=[]):
                 word_dict[temp] = 0
             for x in hot_list:
                 word_dict[temp] += x.lower().split().count(temp)
+    word_dict = OrderedDict(sorted(word_dict.items()))
     sort_word = sorted(word_dict.items(), key=lambda x: x[1], reverse=True)
     for x in sort_word:
         if x[1] == 0:
