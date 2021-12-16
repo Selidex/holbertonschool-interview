@@ -20,8 +20,8 @@ int heap_extract(heap_t **root)
 
 	if (get_height(*root) == 1)
 	{
-		free(*root);
-		return (max);
+		last = *root;
+		*root = NULL;
 	}
 	else
 	{
