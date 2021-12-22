@@ -1,12 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int _putchar(char c);
+
 /**
  * partrim - parses a string confirming it is all ints and trims leading 0s
  * @str: the string being parsed and trimmed
  * Return: void, no return
  */
-char* partrim(char *str)
+char *partrim(char *str)
 {
 	int i, offset = 0;
 	int zero = 0;
@@ -62,6 +64,11 @@ int main(int argc, char *argv[])
 	}
 	num1 = partrim(argv[1]);
 	num2 = partrim(argv[2]);
-	printf("num1: %s\nnum2: %s\n", num1, num2);
+	if (len(num1) == 0 || len(num2) == 0)
+	{
+		_putchar('0');
+		_putchar('\n');
+		return (0);
+	}
 	return (0);
 }
