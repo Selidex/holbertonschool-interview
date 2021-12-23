@@ -87,6 +87,7 @@ void mul(char *num1, char *num2)
 			printf("%d", total[i]);
 	}
 	printf("\n");
+	free(total);
 }
 
 /**
