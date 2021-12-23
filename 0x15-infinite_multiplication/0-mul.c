@@ -47,6 +47,49 @@ int len(char *str)
 }
 
 /**
+ * mul - multiplies two potentially infinite long numbers
+ * @num1: the first number
+ * @num2: the second number
+ * Return: void, no return
+ */
+
+void mul(char *num1, char *num2)
+{
+	int *total, i, j, m1, m2, tmp;
+
+	total = malloc(sizeof(int) * (len(num1) + len(num2)));
+	if (total == NULL)
+		exit(98);
+	for (i = 0; i < (len(num1) + len(num2)); i++)
+		total[i] = 0;
+	for (i = len(num1) - 1; i >= 0; i--)
+	{
+		for (j = len(num2) - 1; j >= 0; j--)
+		{
+			m1 = num1[i] - '0';
+			m2 = num2[j] - '0';
+			tmp = m1 * m2;
+			total[i + j + 1] += tmp;
+		}
+	}
+	for (i = len(num1) + len(num2) - 1; i > 0; i--)
+	{
+		m1 = total[i] % 10;
+		m2 = total[i] / 10;
+		total[i] = m1;
+		total[i - 1] += m2;
+	}
+	for (i = 0; i < (len(num1) + len(num2)); i++)
+	{
+		if (i == 0 && total[0] == 0)
+			continue;
+		else
+			printf("%d", total[i]);
+	}
+	printf("\n");
+}
+
+/**
  * main - the main program, recieves the argc/argv
  * @argc: number of arguments passed to program
  * @argv: the list of arguments
@@ -70,5 +113,6 @@ int main(int argc, char *argv[])
 		_putchar('\n');
 		return (0);
 	}
+	mul(num1, num2);
 	return (0);
 }
