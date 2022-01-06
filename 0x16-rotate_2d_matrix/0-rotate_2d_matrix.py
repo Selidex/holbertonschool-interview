@@ -4,6 +4,6 @@
 
 def rotate_2d_matrix(matrix):
     """Does the rotation"""
-    print(matrix)
-    matrix = list(zip(*matrix[::-1]))
-    print(matrix)
+    tmp = list(zip(*matrix[::-1]))
+    matrix.clear()
+    matrix.append(tmp)
