@@ -2,6 +2,6 @@
 """This will rotate a 2D matrix"""
 
 
-def rotate_2d_matrix(matrix):
+def rotate_2d_matrix(m):
     """Does the rotation"""
-    [(matrix.pop(0), matrix.append(list(n))) for n in list(zip(*matrix[::-1]))]
+    [(m.pop(0), m.append(list(n))) for n in zip(*m[::-1])]
