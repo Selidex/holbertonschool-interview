@@ -58,13 +58,13 @@ void merge(int arr[], int l, int m, int r)
  * Return: void, no return
  */
 
-void helper(int arr[], int l, int r)
+void helper(int *arr, int l, int r)
 {
 	int m;
 
 	if (l < r)
 	{
-		m = l + (r - l) / 2;
+		m = (l + r - 1) / 2;
 		helper(arr, l, m);
 		helper(arr, m + 1, r);
 		printf("Merging...\n");
