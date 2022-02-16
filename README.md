@@ -31,6 +31,7 @@ Currently this repository has solutions for the following problems:
 - Rotate 2D Matrix
 - Find the Loop
 - Merge Sort
+- Island Perimeter
 
 Future Problems that will be including in this repository include:
 - Log Parsing
