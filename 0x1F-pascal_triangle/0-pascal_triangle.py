@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ This function returns pascal's triangle up to n rows"""
 
+
 def pascal_triangle(n):
     """This function return's Pascal's triangle up to n rows"""
     pascal = []
@@ -9,6 +10,6 @@ def pascal_triangle(n):
         pascal[i].append(1)
         for j in range(1, i):
             pascal[i].append(pascal[i - 1][j - 1] + pascal[i - 1][j])
-        if(n != 0):
+        if(i != 0):
             pascal[i].append(1)
     return pascal
